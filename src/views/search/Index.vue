@@ -42,7 +42,7 @@ const keyUp = () => {
           @keyup.enter="keyUp" /></div>
       <div class="result" v-loading="loading" :style="{ border: resultContent ? '1px solid #ddd' : 'none' }">
         <el-scrollbar height="300px">
-          <el-text style="white-space: pre-wrap; float: left;">{{ resultContent }}</el-text>
+          <el-text style="white-space: pre-wrap; text-align: left;">{{ resultContent }}</el-text>
         </el-scrollbar>
       </div>
     </div>
@@ -72,6 +72,7 @@ const keyUp = () => {
   margin-top: 30px;
   width: 500px;
   padding: 10px;
+  text-align: left;
 }
 
 .contains .search .el-image {
