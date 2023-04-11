@@ -4,6 +4,10 @@ import { Search } from '@element-plus/icons-vue'
 import { useRouter } from "vue-router"
 import { gptSearch } from '@/api/gpt'
 import assetLogo from '@/assets/img/logo5.svg'
+// import { useI18n } from 'vue-i18n'
+
+// const { t } = useI18n()
+
 
 // 路由
 const router = useRouter()
@@ -38,15 +42,14 @@ const keyUp = () => {
       <div>
         <el-image :src="logo"></el-image>
       </div>
-      <div><el-input v-model="input" class="w-50 m-2" size="large" placeholder="Please Input" :prefix-icon="Search"
-          @keyup.enter="keyUp" /></div>
+      <div><el-input v-model="input" class="w-50 m-2" size="large" :placeholder="$t('search.placeholder')"
+          :prefix-icon="Search" @keyup.enter="keyUp" /></div>
       <div class="result" v-loading="loading" :style="{ border: resultContent ? '1px solid #ddd' : 'none' }">
         <el-scrollbar height="300px">
           <el-text style="white-space: pre-wrap; text-align: left;">{{ resultContent }}</el-text>
         </el-scrollbar>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -73,6 +76,7 @@ const keyUp = () => {
   width: 500px;
   padding: 10px;
   text-align: left;
+  background: white;
 }
 
 .contains .search .el-image {
