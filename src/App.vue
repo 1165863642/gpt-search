@@ -1,11 +1,6 @@
 <script setup lang="ts">
-import type { ElHeader } from 'element-plus';
-import { ref, watchEffect } from 'vue'
 import { useI18n } from 'vue-i18n'
 const { locale } = useI18n()
-
-// 默认语言
-const localeLang = ref('zh')
 
 const changeLang = (lang: string) => {
   locale.value = lang
@@ -16,7 +11,7 @@ const changeLang = (lang: string) => {
 
 <template>
   <div class="contains">
-    <el-dropdown style=" z-index: 11111; float: right; margin-top:10px; margin-right: 40px;">
+    <el-dropdown style=" z-index: 11111; float: right; ">
       <span class="el-dropdown-link">
         {{ $t('language') }}
         <el-icon class="el-icon--right">
@@ -35,18 +30,20 @@ const changeLang = (lang: string) => {
 </template>
 
 <style scoped >
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .contains {
   position: fixed;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
-  padding: 20px;
+  bottom: 0;
+  right: 0;
+  /* padding: 20px; */
   background: white;
-}
-
-.el-header {
-  position: flex;
-  top: 0;
 }
 </style>

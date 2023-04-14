@@ -42,7 +42,7 @@ const keyUp = () => {
       <div>
         <el-image :src="logo"></el-image>
       </div>
-      <div><el-input v-model="input" class="w-50 m-2" size="large" :placeholder="$t('search.placeholder')"
+      <div><el-input v-model="input" class="w-50 m-200" size="large" :placeholder="$t('search.placeholder')"
           :prefix-icon="Search" @keyup.enter="keyUp" /></div>
       <div class="result" v-loading="loading" :style="{ border: resultContent ? '1px solid #ddd' : 'none' }">
         <el-scrollbar height="300px">
@@ -57,7 +57,7 @@ const keyUp = () => {
 .contains .search {
   position: relative;
   width: 600px;
-  height: 45px;
+  height: 50px;
   left: 50%;
   top: 40%;
   margin-left: -300px;
@@ -66,7 +66,11 @@ const keyUp = () => {
 }
 
 .contains .search :deep(.el-input__wrapper) {
-  border-radius: 20px;
+  border-radius: 100px;
+}
+
+.contains .search .el-input {
+  height: 50px;
 }
 
 
